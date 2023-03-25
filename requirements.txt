@@ -1,0 +1,5 @@
+faunadb
+openai
+pyTelegramBotAPI
+requests==2.27.1
+python-dotenv==0.20.0
