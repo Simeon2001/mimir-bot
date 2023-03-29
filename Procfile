@@ -1,1 +1,2 @@
-worker: python mimir.py 
+# Modify this Procfile to fit your needs
+worker: python mimir.py

@@ -29,7 +29,7 @@ def echo_all(message):
     count = check["count"]
     su = check["su"]
     status = check["status"]
-    if count == 5:
+    if count == 5 and su == False:
         reply = "Hi there! Please note that you can use mimir up to five times. After that, please contact Simeon for pricing and get unlimited access. Thank you for using mimir"
         bot.reply_to(message, reply)
     elif status == True or su == True:
