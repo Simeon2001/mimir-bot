@@ -9,14 +9,18 @@ openai.api_key = os.getenv("GPT_KEY")
 
 
 def answer(msg):
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=msg,
-        temperature=0.2,
-        max_tokens=256,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0,
-    )
-    replyit = response["choices"][0]["text"]
-    return replyit
+    try:
+        completion = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "assistant", "content": msg}
+            ]
+        )
+
+        response = (completion.choices[0].message)
+        
+        return response["content"]
+    
+    except:
+        msg = "my brain is currently snoozing"
+        return msg
