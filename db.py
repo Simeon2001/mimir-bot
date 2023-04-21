@@ -14,8 +14,8 @@ headers["Authorization"] = "Bearer {0}".format(os.getenv("DB_KEY"))
 
 
 def read_db(msg_id):
-    url_selectidd = "https://zmtgekaignlkvgsgetuv.supabase.co/rest/v1/MimirUser?msg_id=eq.{0}".format(
-        msg_id
+    url_selectidd = "{0}?msg_id=eq.{1}".format(
+        os.getenv("DB_URL"), msg_id
     )
     res = requests.get(url_selectidd, headers=headers)
     v = res.json()
@@ -28,7 +28,7 @@ def read_db(msg_id):
 
 
 def create_db(msg_id):
-    create_url = "https://zmtgekaignlkvgsgetuv.supabase.co/rest/v1/MimirUser"
+    create_url = os.getenv("DB_URL")
     info = {"msg_id": msg_id, "status": True}
     data = json.dumps(info, indent=2)
     res = requests.post(create_url, headers=headers, data=data)
@@ -37,8 +37,8 @@ def create_db(msg_id):
 
 
 def update_db(msg_id, count, status=True):
-    update_url = "https://zmtgekaignlkvgsgetuv.supabase.co/rest/v1/MimirUser?msg_id=eq.{0}".format(
-        msg_id
+    update_url = "{0}?msg_id=eq.{1}".format(
+        os.getenv("DB_URL"), msg_id
     )
     info = {"count": count, "status": status}
     data = json.dumps(info, indent=2)
