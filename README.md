@@ -8,6 +8,9 @@ Mimir is a bot named after the wisest god in Norse mythology! built with Python,
 
 Just chat Mimir up and it will answer all your question.
 
+
+![alt text](https://github.com/Simeon2001/mimir-bot/blob/master/chat.png)
+
 ## URL
 
 To chat: http://t.me/MimirWise_Bot
